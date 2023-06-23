@@ -1,0 +1,14 @@
+version: 2.0
+shards:
+  db:
+    git: https://github.com/crystal-lang/crystal-db.git
+    version: 0.11.0
+
+  http_proxy:
+    git: https://github.com/mamantoha/http_proxy.git
+    version: 0.10.1+git.commit.dbf6a012d5328568005a4855f9b980fd8ea8aa97
+
+  tourmaline:
+    git: https://github.com/protoncr/tourmaline.git
+    version: 0.29.0+git.commit.f8de7f681869eace3074a36095c6e7420082131d
+
