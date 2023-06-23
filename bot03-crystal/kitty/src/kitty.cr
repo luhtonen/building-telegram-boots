@@ -1,0 +1,41 @@
+require "tourmaline"
+
+# Need to install depedencies first with the following command:
+# shards install
+# to build and run execute following command in echo directory:
+# crystal run src/kitty.cr
+# In telegram select this bot and send following message:
+# /echo "How are you?"
+client = Tourmaline::Client.new(ENV["BOT_TOKEN"])
+
+API_URL = "https://thecatapi.com/api/images/get"
+
+help_command = Tourmaline::CommandHandler.new(["help", "start"]) do |ctx|
+  markup = client.build_reply_keyboard_markup do |kb|
+    kb.button "/kitty"
+    kb.button "/kittygif"
+  end
+  ctx.reply("😺 Use commands: /kitty, /kittygif and /about", reply_markup: markup)
+end
+
+about_command = Tourmaline::CommandHandler.new("about") do |ctx|
+  text = "😽 This bot is powered by Tourmaline, a Telegram bot library for Crystal. Visit https://github.com/watzon/tourmaline to check out the source code."
+  ctx.reply(text)
+end
+
+kitty_command = Tourmaline::CommandHandler.new(["kitty", "kittygif"]) do |ctx|
+  # The time hack is to get around Telegram's image cache
+  api = API_URL + "?time=#{Time.utc}&format=src&type="
+  case ctx.command!
+  when "kitty"
+    ctx.send_chat_action(:upload_photo)
+    ctx.respond_with_photo(api + "jpg")
+  when "kittygig"
+    ctx.send_chat_action(:upload_photo)
+    ctx.respond_with_photo(api + "gif")
+  else
+  end
+end
+
+client.register(help_command, about_command, kitty_command)
+client.poll
