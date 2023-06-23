@@ -1,0 +1,18 @@
+name: hello
+version: 0.1.0
+
+authors:
+  - Eduard Luhtonen
+
+targets:
+  mybot:
+    main: src/hello.cr
+
+crystal: 1.8.2
+
+license: MIT
+
+dependencies:
+  tourmaline:
+    github: protoncr/tourmaline
+    branch: master
