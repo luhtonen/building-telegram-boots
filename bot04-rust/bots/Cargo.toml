@@ -8,3 +8,11 @@ edition = "2021"
 [dependencies]
 teloxide = { version = "0.12", features = ["macros"] }
 tokio = { version =  "1.28.2", features = ["rt-multi-thread", "macros"] }
+
+[[bin]]
+name = "bot1"
+path = "src/main.rs"
+
+[[bin]]
+name = "bot2"
+path = "src/bot2.rs"
