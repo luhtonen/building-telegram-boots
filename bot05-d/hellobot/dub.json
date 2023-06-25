@@ -1,0 +1,9 @@
+{
+	"authors": [
+		"Eduard Luhtonen"
+	],
+	"copyright": "Copyright © 2023, Eduard Luhtonen",
+	"description": "Hello Telegram Bot with D",
+	"license": "MIT",
+	"name": "hellobot"
+}
