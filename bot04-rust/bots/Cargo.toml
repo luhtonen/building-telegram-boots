@@ -16,3 +16,7 @@ path = "src/main.rs"
 [[bin]]
 name = "bot2"
 path = "src/bot2.rs"
+
+[[bin]]
+name = "bot3"
+path = "src/bot3.rs"

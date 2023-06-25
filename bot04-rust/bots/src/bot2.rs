@@ -1,5 +1,5 @@
-use teloxide::Bot;
 use teloxide::prelude::*;
+use teloxide::Bot;
 
 // need to set TELOXIDE_TOKEN environment variable with Telegram token
 #[tokio::main]
@@ -14,7 +14,10 @@ async fn main() {
     ];
     // TODO: iterate over multiple locations
     teloxide::repl(bot, |bot: Bot, msg: Message| async move {
-        bot.send_location(msg.chat.id, 35.652832, 139.839478).live_period(60).await?;
+        bot.send_location(msg.chat.id, 35.652832, 139.839478)
+            .live_period(60)
+            .await?;
         Ok(())
-    }).await;
+    })
+    .await;
 }
