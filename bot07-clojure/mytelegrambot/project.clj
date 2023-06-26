@@ -1,5 +1,5 @@
 (defproject mytelegrambot "0.1.0-SNAPSHOT"
-  :description "FIXME: write description"
+  :description "My first Telegram bot with Clojure"
   :url "http://example.com/FIXME"
 
   :license {:name "Eclipse Public License"
