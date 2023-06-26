@@ -22,10 +22,26 @@
       (println "Help was requested in " chat)
       (t/send-text token id "Help is on the way")))
 
+  (h/inline-fn
+    (fn [inline]
+      (println "Intercepted message: " inline)
+      (try
+        (t/answer-inline
+          token
+          (:id inline)
+          [
+           {:type "gif"
+            :id "gif1"
+            :thumb_url "https://media.glamour.com/photos/57ee812a97f0ecec29adfd06/master/w_644,c_limit/lemonslede.gif"
+            :gif_url "https://media.glamour.com/photos/57ee812a97f0ecec29adfd06/master/w_644,c_limit/lemonslede.gif"}])
+        (catch Exception e (println e)))
+      inline
+      ))
+
   (h/message-fn
     (fn [{{id :id} :chat :as message}]
       (println "Intercepted message: " message)
-      (t/send-text token id "I don't do a whole lot ... yet."))))
+      (t/send-text token id (str/reverse (:text message))))))
 
 
 (defn -main
