@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+application {
+    mainClass = 'org.elu.learn.telegram.bot.InvoiceBot'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.github.pengrad:java-telegram-bot-api:6.7.0'
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
